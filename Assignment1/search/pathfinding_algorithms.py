@@ -23,7 +23,6 @@ def Dijkstra(start, goal, gridded_map):
             if hash_value not in closed:
                 child.set_cost(child.get_g())
                 heapq.heappush(open, child)
-                heapq.heapify(open)
                 closed[hash_value] = child
             if (hash_value in closed) and (child.get_g() < closed[hash_value].get_cost()):
                 child.set_cost(child.get_g())
@@ -64,7 +63,6 @@ def Astar(start, goal, gridded_map):
                 h = set_h_value(child, goal)
                 child.set_cost(child.get_g() + h)
                 heapq.heappush(open, child)
-                heapq.heapify(open)
                 closed[hash_value] = child
             temp = closed[hash_value]
             if (hash_value in closed) and (child.get_cost() < temp.get_cost()):
